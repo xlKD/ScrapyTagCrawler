@@ -9,8 +9,6 @@ import scrapy
 
 
 class TutorialItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    #title = scrapy.Field()
+    # Mandatory fields for image downloading
     image_urls = scrapy.Field()
     images = scrapy.Field()
