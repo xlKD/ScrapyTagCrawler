@@ -1,2 +1,3 @@
 CrawledData/*
 .DS_Store
+*.pyc
