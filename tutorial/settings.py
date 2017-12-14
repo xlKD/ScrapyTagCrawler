@@ -19,7 +19,7 @@ NEWSPIDER_MODULE = 'tutorial.spiders'
 #USER_AGENT = 'tutorial (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -93,3 +93,9 @@ FEED_EXPORT_ENCODING = 'utf-8'
 
 ITEM_PIPELINES = {'scrapy.pipelines.images.ImagesPipeline': 1}
 IMAGES_STORE = "CrawledData"
+
+# S3 settings
+#AWS_ACCESS_KEY_ID = "xxx"
+#AWS_SECRET_ACCESS_KEY = "yyy"
+#IMAGES_STORE = 's3://bucket/path/'
+#IMAGES_STORE_S3_ACL = 'public-read'

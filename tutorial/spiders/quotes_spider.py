@@ -1,6 +1,8 @@
 import scrapy
 
 from tutorial.items import TutorialItem
+from crawlers.models.base import Session
+from crawlers.models.product import Product
 
 class TagsSpider(scrapy.Spider):
     # Mandatory fields
@@ -23,4 +25,18 @@ class TagsSpider(scrapy.Spider):
         img_urls = response.css('img.product-detail-thumbnail-image::attr(src)').extract()
         for img_url in img_urls:
             img_url = img_url.replace('/thumb', '/main')
+            # save image to storage
             yield TutorialItem(image_urls=['http:' + img_url])
+
+        name = response.css('.css_selector').extract_first()
+        price = response.css('.css_selector').extract_first()
+        self.saveProduct( name, price )
+
+    def saveProduct( self, name, price ):
+        session = Session()
+
+        new_product = Product( name, price )
+        session.add( new_product )
+
+        session.commit()
+        session.close()
