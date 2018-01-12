@@ -1,4 +1,4 @@
-# Scrapy Tag Crawler
+# Scrapy Crawler
 
 A web crawler using Scrapy Framework(Python)
 
